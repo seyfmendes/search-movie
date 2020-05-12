@@ -1,0 +1,54 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /movie/api/v1/
+
+management:
+  server:
+    servlet:
+      context-path: /management
+    port: 8081
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+logging:
+  level:
+    root: INFO
+    com.seyf.movie: TRACE
+
+spring:
+  application.name: movie-api
+  datasource:
+    driverClassName: org.postgresql.Driver
+    hikari:
+      pool-name: movie-dbconnectionpool
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    url: jdbc:postgresql://localhost:5432/movie
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: update
+      org.hibernate.envers.default_schema: public
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+# Omdb
+services:
+  url: http://www.omdbapi.com/
+  apiKey: 73527106
+

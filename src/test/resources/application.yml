@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: movie-api
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MULTI_THREADED=FALSE
+    hikari:
+      auto-commit: false
+  jpa:
+    database: H2
+
+# Omdb
+services:
+  url: http://www.omdbapi.com/
+  apiKey: 73527106
