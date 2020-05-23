@@ -11,7 +11,6 @@ import java.util.List;
 @Api(value = "Search Movie", description = "Search For Movie in Omdb Api")
 @RestController
 @RequestMapping(path = "search")
-@CrossOrigin(origins = "*")
 public class SearchController {
 
     SearchService searchService;

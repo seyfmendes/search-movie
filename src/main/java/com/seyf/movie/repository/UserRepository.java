@@ -1,7 +1,13 @@
 package com.seyf.movie.repository;
 
-/**
- * @author bilgealtay on 23-05-2020
- */
-public class UserRepository {
+
+import com.seyf.movie.model.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUserName(String userName);
+
 }
