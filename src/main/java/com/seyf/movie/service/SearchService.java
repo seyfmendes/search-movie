@@ -2,7 +2,7 @@ package com.seyf.movie.service;
 
 import com.seyf.movie.model.dto.SearchResponse;
 import com.seyf.movie.model.entity.MovieInfo;
-import com.seyf.movie.utils.ObjectMapperUtils;
+import com.seyf.movie.utils.ModelMapperUtils;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
@@ -43,7 +43,7 @@ public class SearchService {
     private List<MovieInfo> mapping(SearchResponse searchResponse) {
         List<MovieInfo> movieInfos = null;
         if (searchResponse.isResponse())
-            movieInfos = ObjectMapperUtils.mapAll(searchResponse.getSearch(), MovieInfo.class);
+            movieInfos = ModelMapperUtils.mapAll(searchResponse.getSearch(), MovieInfo.class);
         return movieInfos;
     }
 

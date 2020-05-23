@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ObjectMapperUtils {
+public class ModelMapperUtils {
     private static ModelMapper modelMapper;
 
     static {
