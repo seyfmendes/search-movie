@@ -1,6 +1,7 @@
 package com.seyf.movie.model.entity;
 
 
+import com.seyf.movie.enums.Status;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,12 +21,29 @@ public class User implements Serializable {
     @ApiModelProperty(required = true, notes = "id of user")
     private Long id;
 
-    @Column(name = "user_name")
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.ACTIVE;
+
+    @Column(name = "user_name", unique = true)
     @ApiModelProperty(required = true, notes = "user name")
     private String userName;
 
     @Column(name = "password_hash")
     @ApiModelProperty(required = true, notes = "user password")
     private String password;
+
+    @Column(name = "name")
+    @ApiModelProperty(required = true, notes = "name")
+    private String name;
+
+    @Column(name = "surname")
+    @ApiModelProperty(required = true, notes = "surname")
+    private String surname;
+
+    @Column(name = "email")
+    @ApiModelProperty(required = true, notes = "surname")
+    private String email;
+
 
 }
